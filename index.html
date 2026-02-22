@@ -3,37 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cash App Reward - FreeCash</title>
+    <title>Exclusive Reward - Trading Bonus</title>
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #0b0e11; color: white; margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
-        .container { width: 90%; max-width: 400px; background: #1e2329; border-radius: 24px; border: 1px solid #f3ba2f; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.6); text-align: center; }
-        .content { padding: 40px 20px; }
-        .cashapp-logo { background: #00d632; width: 80px; height: 80px; border-radius: 20px; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 45px; font-weight: bold; color: white; box-shadow: 0 0 25px rgba(0, 214, 50, 0.3); }
-        h1 { font-size: 24px; margin-bottom: 12px; font-weight: 800; }
-        h1 span { color: #f3ba2f; }
-        p { color: #848e9c; font-size: 16px; line-height: 1.5; margin-bottom: 30px; }
-        .btn { display: block; background: #f3ba2f; color: #000; text-decoration: none; padding: 18px; border-radius: 12px; font-weight: bold; font-size: 18px; transition: 0.3s; box-shadow: 0 4px 15px rgba(243, 186, 47, 0.2); }
-        .btn:hover { background: #ffd25d; transform: scale(1.02); }
-        .footer { padding: 15px; font-size: 11px; color: #5e6673; background: #171a1e; border-top: 1px solid #2b3139; }
-        .status { color: #2ebd85; font-size: 13px; font-weight: bold; margin-bottom: 10px; display: block; }
+        /* Modern Trading Interface Styling */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0b0e11;
+            background-image: 
+                linear-gradient(rgba(11, 14, 17, 0.85), rgba(11, 14, 17, 0.85)),
+                url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+            color: #ffffff;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Candlestick Chart Background Effect */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://w0.peakpx.com/wallpaper/403/173/HD-wallpaper-stock-market-candlestick-chart-trading-investment-business-concepts-finance-stock-market-indicators.jpg') no-repeat center center;
+            background-size: cover;
+            opacity: 0.12;
+            z-index: -1;
+        }
+
+        .container {
+            background: rgba(24, 26, 32, 0.98);
+            border: 1px solid #f3ba2f;
+            border-radius: 20px;
+            padding: 45px 25px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(243, 186, 47, 0.1);
+            position: relative;
+        }
+
+        .cash-logo {
+            background: #00d632;
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 8px 20px rgba(0, 214, 50, 0.3);
+        }
+
+        h1 {
+            font-size: 26px;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        h1 span {
+            color: #f3ba2f;
+        }
+
+        .promo-tag {
+            color: #848e9c;
+            font-size: 14px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Live Timer Section */
+        .offer-box {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid #333;
+        }
+
+        #timer {
+            font-size: 36px;
+            font-weight: 800;
+            color: #f3ba2f;
+            font-family: 'Courier New', monospace;
+        }
+
+        .progress-bar {
+            background: #2b3139;
+            height: 8px;
+            border-radius: 10px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #2ebd85, #00d632);
+            width: 92%;
+            height: 100%;
+            border-radius: 10px;
+            animation: shrink 300s linear forwards;
+        }
+
+        .live-status {
+            color: #2ebd85;
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .dot {
+            height: 8px;
+            width: 8px;
+            background-color: #2ebd85;
+            border-radius: 50%;
+            display: inline-block;
+            animation: blink 1s infinite;
+        }
+
+        .main-button {
+            display: block;
+            background: #f3ba2f;
+            color: #000000;
+            text-decoration: none;
+            padding: 20px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            box-shadow: 0 10px 25px rgba(243, 186, 47, 0.2);
+        }
+
+        .main-button:hover {
+            transform: translateY(-2px);
+            background: #ffc842;
+            box-shadow: 0 15px 30px rgba(243, 186, 47, 0.4);
+        }
+
+        .fine-print {
+            margin-top: 25px;
+            font-size: 11px;
+            color: #5e6673;
+            line-height: 1.5;
+        }
+
+        @keyframes shrink { from { width: 92%; } to { width: 4%; } }
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <div class="content">
-            <span class="status">● Verified Reward Available (USA)</span>
-            <div class="cashapp-logo">$</div>
-            <h1>Claim Your <span>$5.00</span> Cash App Reward</h1>
-            <p>Complete a quick task on FreeCash to unlock your $5.00 instant transfer. Limited time offer for US residents.</p>
-            
-            <a href="https://smrturl.co/a/s87700d574f/663?s1=" class="btn">Claim Reward Now</a>
+        <div class="cash-logo">$</div>
+        <h1>Trading Account <br><span>$5.00 Welcome Bonus</span></h1>
+        <div class="promo-tag">Verified US Residents Only</div>
+
+        <div class="offer-box">
+            <div style="font-size: 10px; color: #848e9c; margin-bottom: 8px;">OFFER EXPIRES IN:</div>
+            <div id="timer">04:59</div>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            <div class="live-status">
+                <span class="dot"></span> 89% of Daily Rewards Claimed
+            </div>
         </div>
-        <div class="footer">
-            Official FreeCash & Cash App Promotion. <br>
-            *No VPN allowed. Valid IP required.
+
+        <a href="https://smrturl.co/a/s87700d574f/663?s1=" class="main-button">Claim Bonus Now</a>
+
+        <div class="fine-print">
+            Official Promotion via Cash App & FreeCash.<br>
+            *Requires US IP Verification. One per household.
         </div>
     </div>
 
+    <script>
+        // Real-time Countdown Script
+        let time = 299; 
+        const countdownElement = document.getElementById('timer');
+
+        setInterval(() => {
+            const minutes = Math.floor(time / 60);
+            let seconds = time % 60;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+            countdownElement.innerHTML = `0${minutes}:${seconds}`;
+            if (time > 0) time--;
+        }, 1000);
+    </script>
 </body>
 </html>
