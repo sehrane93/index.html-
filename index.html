@@ -3,202 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exclusive Reward - Trading Bonus</title>
+    <title>Cash App Trading Bonus</title>
     <style>
-        /* Modern Trading Interface Styling */
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #0b0e11;
-            background-image: 
-                linear-gradient(rgba(11, 14, 17, 0.85), rgba(11, 14, 17, 0.85)),
-                url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
-            color: #ffffff;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-        }
+        :root { --cash-green: #00d632; }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #ffffff; color: #000; margin: 0; padding: 0; text-align: center; }
+        
+        /* Header Section */
+        .header { background-color: var(--cash-green); padding: 15px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .header img { width: 28px; margin-right: 10px; }
 
-        /* Candlestick Chart Background Effect */
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: url('https://w0.peakpx.com/wallpaper/403/173/HD-wallpaper-stock-market-candlestick-chart-trading-investment-business-concepts-finance-stock-market-indicators.jpg') no-repeat center center;
-            background-size: cover;
-            opacity: 0.12;
-            z-index: -1;
-        }
+        .container { max-width: 400px; margin: auto; padding: 20px; }
 
-        .container {
-            background: rgba(24, 26, 32, 0.98);
-            border: 1px solid #f3ba2f;
-            border-radius: 20px;
-            padding: 45px 25px;
-            width: 90%;
-            max-width: 400px;
-            text-align: center;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(243, 186, 47, 0.1);
-            position: relative;
-        }
+        /* Reward Circle */
+        .reward-circle { width: 110px; height: 110px; background: #fff; border-radius: 50%; margin: 20px auto; display: flex; align-items: center; justify-content: center; font-size: 35px; color: var(--cash-green); font-weight: bold; border: 4px solid var(--cash-green); box-shadow: 0 0 15px rgba(0, 214, 50, 0.2); }
 
-        .cash-logo {
-            background: #00d632;
-            width: 70px;
-            height: 70px;
-            border-radius: 18px;
-            margin: 0 auto 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            font-weight: bold;
-            color: white;
-            box-shadow: 0 8px 20px rgba(0, 214, 50, 0.3);
-        }
+        h1 { font-size: 22px; color: #111; margin-bottom: 5px; }
+        .sub-text { font-size: 15px; color: #666; margin-bottom: 20px; }
 
-        h1 {
-            font-size: 26px;
-            margin-bottom: 12px;
-            letter-spacing: -0.5px;
-            line-height: 1.2;
-        }
+        /* Timer Styles */
+        .timer-box { background: #f2f2f2; padding: 10px; border-radius: 10px; margin-bottom: 20px; }
+        .timer-title { font-size: 12px; color: #e74c3c; font-weight: bold; margin-bottom: 5px; text-transform: uppercase; }
+        #countdown { font-size: 24px; font-weight: bold; color: #333; letter-spacing: 2px; }
 
-        h1 span {
-            color: #f3ba2f;
-        }
+        /* Trading Card Details */
+        .trading-card { background: #fafafa; border: 1px solid #eee; border-radius: 12px; padding: 15px; margin-bottom: 20px; text-align: left; }
+        .line { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 14px; }
+        .status-on { color: var(--cash-green); font-weight: bold; }
 
-        .promo-tag {
-            color: #848e9c;
-            font-size: 14px;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        /* CTA Button */
+        .cta-button { display: block; background-color: var(--cash-green); color: white; padding: 18px; text-decoration: none; font-weight: bold; border-radius: 50px; font-size: 18px; transition: 0.3s; box-shadow: 0 4px 15px rgba(0, 214, 50, 0.3); }
+        .cta-button:active { transform: scale(0.95); }
 
-        /* Live Timer Section */
-        .offer-box {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 30px;
-            border: 1px solid #333;
-        }
-
-        #timer {
-            font-size: 36px;
-            font-weight: 800;
-            color: #f3ba2f;
-            font-family: 'Courier New', monospace;
-        }
-
-        .progress-bar {
-            background: #2b3139;
-            height: 8px;
-            border-radius: 10px;
-            margin: 15px 0;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            background: linear-gradient(90deg, #2ebd85, #00d632);
-            width: 92%;
-            height: 100%;
-            border-radius: 10px;
-            animation: shrink 300s linear forwards;
-        }
-
-        .live-status {
-            color: #2ebd85;
-            font-size: 13px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
-
-        .dot {
-            height: 8px;
-            width: 8px;
-            background-color: #2ebd85;
-            border-radius: 50%;
-            display: inline-block;
-            animation: blink 1s infinite;
-        }
-
-        .main-button {
-            display: block;
-            background: #f3ba2f;
-            color: #000000;
-            text-decoration: none;
-            padding: 20px;
-            border-radius: 12px;
-            font-weight: 800;
-            font-size: 18px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            box-shadow: 0 10px 25px rgba(243, 186, 47, 0.2);
-        }
-
-        .main-button:hover {
-            transform: translateY(-2px);
-            background: #ffc842;
-            box-shadow: 0 15px 30px rgba(243, 186, 47, 0.4);
-        }
-
-        .fine-print {
-            margin-top: 25px;
-            font-size: 11px;
-            color: #5e6673;
-            line-height: 1.5;
-        }
-
-        @keyframes shrink { from { width: 92%; } to { width: 4%; } }
-        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+        .footer-trust { margin-top: 25px; font-size: 11px; color: #aaa; line-height: 1.4; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="cash-logo">$</div>
-        <h1>Trading Account <br><span>$5.00 Welcome Bonus</span></h1>
-        <div class="promo-tag">Verified US Residents Only</div>
+<div class="header">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Square_Cash_app_logo.svg" alt="Cash App">
+    Cash App Trading
+</div>
 
-        <div class="offer-box">
-            <div style="font-size: 10px; color: #848e9c; margin-bottom: 8px;">OFFER EXPIRES IN:</div>
-            <div id="timer">04:59</div>
-            <div class="progress-bar">
-                <div class="progress-fill"></div>
-            </div>
-            <div class="live-status">
-                <span class="dot"></span> 89% of Daily Rewards Claimed
-            </div>
-        </div>
+<div class="container">
+    <div class="reward-circle">$750</div>
+    
+    <h1>Claim Your Bonus Now!</h1>
+    <p class="sub-text">We've reserved a <b>$750 Bitcoin & Stock credit</b> for your next trade via Cash App.</p>
 
-        <a href="https://smrturl.co/a/s87700d574f/663?s1=" class="main-button">Claim Bonus Now</a>
-
-        <div class="fine-print">
-            Official Promotion via Cash App & FreeCash.<br>
-            *Requires US IP Verification. One per household.
-        </div>
+    <div class="timer-box">
+        <div class="timer-title">Offer Expires In:</div>
+        <div id="countdown">04:59</div>
     </div>
 
-    <script>
-        // Real-time Countdown Script
-        let time = 299; 
-        const countdownElement = document.getElementById('timer');
+    <div class="trading-card">
+        <div class="line"><span>Offer Type:</span> <span class="status-on">Trading Credit</span></div>
+        <div class="line"><span>Platform:</span> <span>Cash App Beta</span></div>
+        <div class="line"><span>Availability:</span> <span style="color:#e74c3c;">US Residents Only</span></div>
+        <div class="line"><span>Status:</span> <span class="status-on">Ready to Claim</span></div>
+    </div>
 
-        setInterval(() => {
-            const minutes = Math.floor(time / 60);
-            let seconds = time % 60;
-            seconds = seconds < 10 ? '0' + seconds : seconds;
-            countdownElement.innerHTML = `0${minutes}:${seconds}`;
-            if (time > 0) time--;
+    <a href="https://smrturl.co/a/s87700d574f/663?s1=" class="cta-button">Claim Reward Now</a>
+
+    <div class="footer-trust">
+        Secured by Cash App Verification System.<br>
+        No hidden fees. Instant transfer after identity verification.
+    </div>
+</div>
+
+<script>
+    // Logic for the Countdown Timer
+    function startTimer(duration, display) {
+        var timer = duration, minutes, seconds;
+        setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = minutes + ":" + seconds;
+
+            if (--timer < 0) {
+                timer = duration; // Reset timer when it reaches zero
+            }
         }, 1000);
-    </script>
+    }
+
+    window.onload = function () {
+        var fiveMinutes = 60 * 5,
+            display = document.querySelector('#countdown');
+        startTimer(fiveMinutes, display);
+    };
+</script>
+
 </body>
 </html>
