@@ -3,28 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cash App Reward</title>
+    <title>Cash App | Official Reward</title>
     <style>
-        body { background-color: #0b0f19; color: white; font-family: Arial; text-align: center; margin: 0; }
-        .header { background: #00d632; padding: 15px; color: black; font-weight: bold; }
-        .container { padding: 20px; }
-        .reward { color: #00d632; font-size: 50px; font-weight: bold; }
-        .video-container { width: 90%; margin: 20px auto; border-radius: 12px; overflow: hidden; background: #000; position: relative; padding-bottom: 56.25%; height: 0; }
+        :root { --cash-green: #00d632; --dark-bg: #0b0f19; }
+        body { font-family: Arial, sans-serif; background-color: var(--dark-bg); color: white; margin: 0; text-align: center; }
+        .header { background: var(--cash-green); padding: 15px; color: black; font-weight: bold; font-size: 20px; }
+        .container { max-width: 450px; margin: auto; padding: 20px; }
+        .reward-amount { font-size: 50px; font-weight: bold; color: var(--cash-green); margin: 10px 0; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 15px; background: #000; margin-bottom: 20px; border: 2px solid #30363d; }
         .video-container video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-        .cta-button { display: block; background: #00d632; color: black; padding: 20px; text-decoration: none; border-radius: 10px; font-weight: bold; margin: 20px; }
+        .cta-button { display: block; background-color: var(--cash-green); color: black; padding: 18px; text-decoration: none; font-weight: bold; border-radius: 12px; font-size: 18px; box-shadow: 0 4px 15px rgba(0, 214, 50, 0.3); }
+        .footer { margin-top: 25px; font-size: 11px; color: #4b5563; }
     </style>
 </head>
 <body>
-    <div class="header">$ Cash Trading Center</div>
-    <div class="container">
-        <div class="reward">$750</div>
-        <h3>Claim Your Trading Reward</h3>
-        <div class="video-container">
-            <video autoplay muted loop playsinline controls>
-                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-            </video>
-        </div>
-        <a href="https://tinyurl.com/Claim-Cash-Reward" class="cta-button">ACTIVATE MY $750 NOW</a>
+
+<div class="header">Cash App Trading Center</div>
+
+<div class="container">
+    <div class="reward-amount">$750</div>
+    <h2 style="margin-bottom: 5px;">Claim Your Reward</h2>
+    <p style="color: #94a3b8; font-size: 14px; margin-bottom: 20px;">Watch the video below to activate your credit.</p>
+
+    <div class="video-container">
+        <video autoplay muted loop playsinline controls>
+            <source src="https://video.wixstatic.com/video/733924_698d27d7396a40c6b1236f0474668545/720p/mp4/file.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
     </div>
+
+    <a href="https://tinyurl.com/Claim-Cash-Reward" class="cta-button">ACTIVATE MY $750 NOW</a>
+
+    <div class="footer">
+        © 2026 Cash App Trading US. <br>
+        Requires USA identity verification for trading credits.
+    </div>
+</div>
+
 </body>
 </html>
