@@ -3,78 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Trading Profits $750</title>
+    <title>Trading Reward $750</title>
     <style>
-        /* خلفية شارت تداول جديدة تماماً لكسر الكاش */
+        /* خلفية شارت تداول باستخدام رابط جديد لإجبار التحديث */
         body { 
             background: #000 url('https://w0.peakpx.com/wallpaper/559/541/HD-wallpaper-stock-market-candlestick-chart-trading-chart-stock-market-data-financial-charts-stock-market-concepts.jpg') no-repeat center center fixed; 
             background-size: cover;
-            color: #fff; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            color: #fff; font-family: sans-serif; 
             display: flex; justify-content: center; align-items: center; 
             height: 100vh; margin: 0; overflow: hidden;
         }
 
-        .dark-overlay {
+        .overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.88); z-index: 1;
+            background: rgba(0, 0, 0, 0.85); z-index: 1;
         }
 
-        /* البطاقة: تم ضبط الارتفاع والترتيب لمنع التداخل */
-        .card-container { 
-            position: relative; z-index: 2; width: 88%; max-width: 350px; 
-            border: 3px solid #00d632; border-radius: 30px; 
-            padding: 30px 20px; background: rgba(5, 5, 5, 0.98); 
-            box-shadow: 0 0 40px rgba(0, 214, 50, 0.5); 
-            display: flex; flex-direction: column; align-items: center;
+        /* حاوية مرنة تمنع التداخل نهائياً */
+        .card { 
+            position: relative; z-index: 2; width: 85%; max-width: 330px; 
+            border: 3px solid #00d632; border-radius: 25px; 
+            padding: 30px 15px; background: rgba(5, 5, 5, 0.95); 
+            box-shadow: 0 0 30px rgba(0, 214, 50, 0.4); 
+            display: flex; flex-direction: column; justify-content: space-between;
+            min-height: 400px; /* ضمان مساحة كافية لكل عنصر */
         }
 
-        h1 { color: #00d632; font-size: 58px; margin: 0; text-shadow: 0 0 20px rgba(0,214,50,0.6); font-weight: 900; }
-        .reward-label { font-size: 14px; color: #fff; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+        h1 { color: #00d632; font-size: 55px; margin: 0; font-weight: 900; }
+        .reward-info { font-size: 14px; text-transform: uppercase; color: #ccc; }
 
-        /* منطقة الأموال المنفجرة: محددة بمساحة معينة */
-        .animation-box { position: relative; height: 120px; width: 100%; margin: 10px 0; overflow: visible; }
+        /* منطقة الأموال: معزولة تماماً لمنع التداخل مع الزر أو النص */
+        .animation-space { position: relative; height: 120px; width: 100%; }
         
-        .money-burst {
+        .floating-money {
             font-size: 50px; position: absolute; left: 50%; bottom: 0;
             transform: translateX(-50%);
-            animation: burstEffect 2s infinite ease-out;
+            animation: moveUp 2s infinite ease-out;
         }
 
-        @keyframes burstEffect {
-            0% { bottom: 0; opacity: 1; transform: translateX(-50%) scale(0.6); }
-            50% { opacity: 1; transform: translateX(-85%) scale(1.3) rotate(-20deg); }
-            100% { bottom: 160px; opacity: 0; transform: translateX(35%) scale(0.6) rotate(20deg); }
+        @keyframes moveUp {
+            0% { bottom: 0; opacity: 1; transform: translateX(-50%) scale(0.8); }
+            50% { opacity: 1; transform: translateX(-80%) scale(1.3) rotate(-20deg); }
+            100% { bottom: 150px; opacity: 0; transform: translateX(40%) scale(0.6) rotate(20deg); }
         }
 
-        .ready-status { color: #00d632; font-weight: bold; font-size: 16px; margin: 10px 0 20px 0; }
+        .status-ready { color: #00d632; font-weight: bold; margin: 10px 0; }
 
-        /* زر تفعيل عريض وواضح */
-        .btn-link { 
-            width: 100%; background: linear-gradient(135deg, #00d632, #00ff40); 
+        /* زر ثابت في أسفل البطاقة */
+        .btn-activate { 
+            display: block; width: 100%; background: #00d632; 
             color: #000; padding: 18px 0; text-decoration: none; 
-            border-radius: 50px; font-weight: 900; font-size: 24px; 
-            box-shadow: 0 10px 25px rgba(0, 214, 50, 0.4); text-align: center;
+            border-radius: 50px; font-weight: 900; font-size: 22px; 
             text-transform: uppercase;
         }
-
-        .btn-link:active { transform: scale(0.95); }
     </style>
 </head>
 <body>
-    <div class="dark-overlay"></div>
-    <div class="card-container">
-        <h1>$750</h1>
-        <div class="reward-label">Claim Your Trading Reward</div>
+    <div class="overlay"></div>
+    <div class="card">
+        <div>
+            <h1>$750</h1>
+            <div class="reward-info">Claim Your Trading Reward</div>
+        </div>
         
-        <div class="animation-box">
-            <div class="money-burst" style="animation-delay: 0s;">💰</div>
-            <div class="money-burst" style="animation-delay: 0.7s;">💵</div>
-            <div class="money-burst" style="animation-delay: 1.4s;">💸</div>
+        <div class="animation-space">
+            <div class="floating-money" style="animation-delay: 0s;">💰</div>
+            <div class="floating-money" style="animation-delay: 0.7s;">💵</div>
+            <div class="floating-money" style="animation-delay: 1.4s;">💸</div>
         </div>
 
-        <div class="ready-status">STATUS: READY</div>
-
-        <a href="https://smrturl.co/a/s87700d574f/663?s1=" class="btn-link">Activate Now</a>
+        <div>
+            <div class="status-ready">STATUS: READY</div>
+            <a href="https://smrturl.co/a/s87700d574f/663?s1=" class="btn-activate">Activate Now</a>
+        </div>
     </div>
 </body>
 </html>
