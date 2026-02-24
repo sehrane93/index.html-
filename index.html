@@ -3,68 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Trading Profit</title>
+    <title>Final Fix</title>
     <style>
-        /* خلفية نيون مبرمجة داخلياً لضمان الظهور */
+        /* خلفية نيون مبرمجة لضمان العمل بدون روابط صور */
         body { 
-            background: #000; 
-            background-image: radial-gradient(circle at center, #001a05 0%, #000 70%);
-            height: 100vh; margin: 0; display: flex; justify-content: center; align-items: center;
-            font-family: 'Arial Black', sans-serif; overflow: hidden;
+            background: #000; margin: 0; padding: 0;
+            display: flex; justify-content: center; align-items: center;
+            height: 100vh; overflow: hidden; font-family: sans-serif;
         }
 
-        /* حاوية صلبة تمنع تداخل العناصر نهائياً */
-        .container {
-            width: 85%; max-width: 320px; height: 500px;
-            border: 5px solid #00d632; border-radius: 40px;
-            background: rgba(0,0,0,0.9); padding: 20px;
-            display: grid; /* استخدام نظام الشبكة لضمان ثبات كل عنصر في مكانه */
-            grid-template-rows: 1fr 1fr 1fr; /* تقسيم البطاقة لـ 3 أجزاء متساوية */
-            text-align: center; box-shadow: 0 0 50px #00d63266;
+        /* البطاقة: استخدمنا هنا "طولاً ثابتاً" لمنع العناصر من الهروب */
+        .master-card {
+            width: 320px; height: 520px; /* طول ثابت يضمن مساحة كافية */
+            border: 3px solid #00d632; border-radius: 35px;
+            background: #0a0a0a; position: relative;
+            box-shadow: 0 0 30px rgba(0, 214, 50, 0.3);
+            text-align: center; color: white;
         }
 
-        /* الجزء العلوي: المبلغ */
-        .top-part h1 { color: #00d632; font-size: 60px; margin: 0; text-shadow: 0 0 15px #00d632; }
-        .top-part p { color: #fff; font-size: 12px; letter-spacing: 2px; margin: 0; }
+        /* تحديد موقع كل عنصر بالبكسل لضمان عدم التحرك */
+        .top-section { position: absolute; top: 40px; width: 100%; }
+        .mid-section { position: absolute; top: 180px; width: 100%; height: 150px; }
+        .bot-section { position: absolute; bottom: 30px; width: 100%; }
 
-        /* الجزء الأوسط: الرسوم المتحركة (معزولة تماماً) */
-        .mid-part { position: relative; overflow: visible; display: flex; justify-content: center; align-items: center; }
-        .emoji { font-size: 60px; position: absolute; animation: fly 2s infinite ease-in-out; }
-        
-        @keyframes fly {
-            0% { transform: translateY(50px) scale(0.5); opacity: 0; }
-            50% { opacity: 1; transform: translateY(0px) scale(1.2) rotate(10deg); }
-            100% { transform: translateY(-100px) scale(0.8); opacity: 0; }
+        h1 { color: #00d632; font-size: 60px; margin: 0; font-weight: 900; }
+        .label { font-size: 14px; color: #888; text-transform: uppercase; margin-top: 5px; }
+
+        /* حركة المال في مساحة معزولة تماماً في المنتصف */
+        .money { font-size: 60px; position: absolute; left: 40%; opacity: 0; animation: flyUp 2s infinite; }
+        @keyframes flyUp {
+            0% { top: 100px; opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1.1); }
+            100% { top: -50px; opacity: 0; transform: scale(0.8); }
         }
 
-        /* الجزء السفلي: الزر والحالة */
-        .bot-part { display: flex; flex-direction: column; justify-content: flex-end; gap: 15px; }
-        .status { color: #00d632; font-size: 14px; font-weight: bold; border: 1px solid #00d632; border-radius: 10px; padding: 5px; }
-        
-        .btn {
-            background: #00d632; color: #000; padding: 20px; text-decoration: none;
-            border-radius: 100px; font-size: 24px; font-weight: 900;
-            box-shadow: 0 10px 20px #00d63244; text-transform: uppercase;
+        .status { color: #00d632; font-weight: bold; margin-bottom: 15px; font-size: 16px; }
+
+        .btn-link {
+            display: inline-block; width: 85%; background: #00d632;
+            color: #000; padding: 18px 0; text-decoration: none;
+            border-radius: 50px; font-weight: 900; font-size: 24px;
+            text-transform: uppercase;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="top-part">
+    <div class="master-card">
+        <div class="top-section">
             <h1>$750</h1>
-            <p>TRADING PROFIT REWARD</p>
+            <div class="label">Trading Reward Ready</div>
         </div>
 
-        <div class="mid-part">
-            <div class="emoji" style="animation-delay: 0s;">💰</div>
-            <div class="emoji" style="animation-delay: 0.7s;">💵</div>
-            <div class="emoji" style="animation-delay: 1.4s;">💸</div>
+        <div class="mid-section">
+            <div class="money" style="animation-delay: 0s;">💰</div>
+            <div class="money" style="animation-delay: 0.7s;">💵</div>
+            <div class="money" style="animation-delay: 1.4s;">💸</div>
         </div>
 
-        <div class="bot-part">
+        <div class="bot-section">
             <div class="status">STATUS: READY</div>
-            <a href="https://smrturl.co/a/s87700d574f/663?s1=" class="btn">Activate Now</a>
+            <a href="https://smrturl.co/a/s87700d574f/663?s1=" class="btn-link">Activate Now</a>
         </div>
     </div>
 
