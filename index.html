@@ -3,79 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Profit Boost</title>
+    <title>Trading Profit</title>
     <style>
-        /* خلفية شبكة تداول متحركة مبرمجة بالكود (لا تعتمد على روابط صور) */
+        /* خلفية نيون مبرمجة داخلياً لضمان الظهور */
         body { 
-            margin: 0; padding: 0; height: 100vh;
-            background-color: #050505;
-            background-image: 
-                linear-gradient(0deg, transparent 24%, rgba(0, 214, 50, .05) 25%, rgba(0, 214, 50, .05) 26%, transparent 27%, transparent 74%, rgba(0, 214, 50, .05) 75%, rgba(0, 214, 50, .05) 76%, transparent 77%, transparent),
-                linear-gradient(90deg, transparent 24%, rgba(0, 214, 50, .05) 25%, rgba(0, 214, 50, .05) 26%, transparent 27%, transparent 74%, rgba(0, 214, 50, .05) 75%, rgba(0, 214, 50, .05) 76%, transparent 77%, transparent);
-            background-size: 50px 50px;
-            display: flex; justify-content: center; align-items: center;
+            background: #000; 
+            background-image: radial-gradient(circle at center, #001a05 0%, #000 70%);
+            height: 100vh; margin: 0; display: flex; justify-content: center; align-items: center;
             font-family: 'Arial Black', sans-serif; overflow: hidden;
         }
 
-        /* حاوية البطاقة بنظام الطبقات المنفصلة */
-        .wrapper {
-            position: relative; width: 90%; max-width: 350px; height: 500px;
-            border: 4px solid #00d632; border-radius: 40px;
-            background: rgba(0, 0, 0, 0.95);
-            box-shadow: 0 0 60px rgba(0, 214, 50, 0.3);
-            display: flex; flex-direction: column; align-items: center;
-            justify-content: space-around; padding: 20px; box-sizing: border-box;
+        /* حاوية صلبة تمنع تداخل العناصر نهائياً */
+        .container {
+            width: 85%; max-width: 320px; height: 500px;
+            border: 5px solid #00d632; border-radius: 40px;
+            background: rgba(0,0,0,0.9); padding: 20px;
+            display: grid; /* استخدام نظام الشبكة لضمان ثبات كل عنصر في مكانه */
+            grid-template-rows: 1fr 1fr 1fr; /* تقسيم البطاقة لـ 3 أجزاء متساوية */
+            text-align: center; box-shadow: 0 0 50px #00d63266;
         }
 
-        /* المبلغ في الأعلى تماماً */
-        .amount { color: #00d632; font-size: 70px; margin: 0; text-shadow: 0 0 20px rgba(0,214,50,0.8); }
-        .reward-text { color: #fff; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-top: -10px; }
+        /* الجزء العلوي: المبلغ */
+        .top-part h1 { color: #00d632; font-size: 60px; margin: 0; text-shadow: 0 0 15px #00d632; }
+        .top-part p { color: #fff; font-size: 12px; letter-spacing: 2px; margin: 0; }
 
-        /* منطقة آمنة للمال في المنتصف فقط */
-        .money-stage { position: relative; width: 100%; height: 160px; overflow: visible; }
+        /* الجزء الأوسط: الرسوم المتحركة (معزولة تماماً) */
+        .mid-part { position: relative; overflow: visible; display: flex; justify-content: center; align-items: center; }
+        .emoji { font-size: 60px; position: absolute; animation: fly 2s infinite ease-in-out; }
         
-        .bill {
-            font-size: 60px; position: absolute; left: 50%; bottom: 0;
-            transform: translateX(-50%);
-            animation: moveUp 1.5s infinite ease-out;
+        @keyframes fly {
+            0% { transform: translateY(50px) scale(0.5); opacity: 0; }
+            50% { opacity: 1; transform: translateY(0px) scale(1.2) rotate(10deg); }
+            100% { transform: translateY(-100px) scale(0.8); opacity: 0; }
         }
 
-        @keyframes moveUp {
-            0% { bottom: 0; opacity: 1; transform: translateX(-50%) scale(0.8); }
-            100% { bottom: 180px; opacity: 0; transform: translateX(-20%) scale(1.2) rotate(20deg); }
+        /* الجزء السفلي: الزر والحالة */
+        .bot-part { display: flex; flex-direction: column; justify-content: flex-end; gap: 15px; }
+        .status { color: #00d632; font-size: 14px; font-weight: bold; border: 1px solid #00d632; border-radius: 10px; padding: 5px; }
+        
+        .btn {
+            background: #00d632; color: #000; padding: 20px; text-decoration: none;
+            border-radius: 100px; font-size: 24px; font-weight: 900;
+            box-shadow: 0 10px 20px #00d63244; text-transform: uppercase;
         }
-
-        .status-box { color: #00d632; border: 1px solid #00d632; padding: 5px 20px; border-radius: 20px; font-size: 14px; }
-
-        /* الزر في الأسفل تماماً */
-        .btn-final {
-            width: 100%; background: #00d632; color: #000;
-            padding: 22px 0; text-decoration: none; border-radius: 100px;
-            font-size: 26px; font-weight: 900; text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 214, 50, 0.4);
-            text-transform: uppercase; transition: 0.2s;
-        }
-
-        .btn-final:active { transform: scale(0.95); }
     </style>
 </head>
 <body>
 
-    <div class="wrapper">
-        <div style="text-align: center;">
-            <h1 class="amount">$750</h1>
-            <div class="reward-text">Trading Profit Reward</div>
+    <div class="container">
+        <div class="top-part">
+            <h1>$750</h1>
+            <p>TRADING PROFIT REWARD</p>
         </div>
 
-        <div class="money-stage">
-            <div class="bill" style="animation-delay: 0s;">💰</div>
-            <div class="bill" style="animation-delay: 0.5s;">💵</div>
-            <div class="bill" style="animation-delay: 1s;">💸</div>
+        <div class="mid-part">
+            <div class="emoji" style="animation-delay: 0s;">💰</div>
+            <div class="emoji" style="animation-delay: 0.7s;">💵</div>
+            <div class="emoji" style="animation-delay: 1.4s;">💸</div>
         </div>
 
-        <div class="status-box">STATUS: READY</div>
-
-        <a href="https://smrturl.co/a/s87700d574f/663?s1=" class="btn-final">Activate Now</a>
+        <div class="bot-part">
+            <div class="status">STATUS: READY</div>
+            <a href="https://smrturl.co/a/s87700d574f/663?s1=" class="btn">Activate Now</a>
+        </div>
     </div>
 
 </body>
