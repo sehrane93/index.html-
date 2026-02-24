@@ -5,72 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trading Profit $750</title>
     <style>
-        /* خلفية شبكة التداول التي أعجبتك */
+        /* خلفية شارت تداول حقيقية واحترافية */
         body { 
-            background: #050505;
-            background-image: 
-                linear-gradient(rgba(0, 214, 50, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 214, 50, 0.1) 1px, transparent 1px);
-            background-size: 30px 30px;
-            color: #fff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #000 url('https://images.unsplash.com/photo-1611974714024-46279913560e?q=80&w=1000&auto=format&fit=crop') no-repeat center center fixed; 
+            background-size: cover;
+            color: #fff; font-family: 'Segoe UI', sans-serif; 
             display: flex; justify-content: center; align-items: center; 
             height: 100vh; margin: 0; overflow: hidden;
         }
 
-        /* البطاقة الرئيسية التي ظهرت في صورتك ولكن بشكل كامل */
+        .overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85); z-index: 1;
+        }
+
         .card { 
-            position: relative; z-index: 10; width: 88%; max-width: 360px; 
-            border: 3px solid #00d632; border-radius: 30px; 
-            padding: 35px 20px; background: rgba(10, 10, 10, 0.95); 
-            box-shadow: 0 0 50px rgba(0, 214, 50, 0.5); text-align: center;
+            position: relative; z-index: 2; width: 85%; max-width: 350px; 
+            border: 2px solid #00d632; border-radius: 25px; 
+            padding: 25px 15px; background: rgba(10, 10, 10, 0.95); 
+            box-shadow: 0 0 40px rgba(0, 214, 50, 0.5); text-align: center;
         }
 
-        h1 { color: #00d632; font-size: 65px; margin: 0; text-shadow: 0 0 20px rgba(0,214,50,0.8); }
-        .sub-title { font-size: 16px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; color: #ccc; }
+        h1 { color: #00d632; font-size: 55px; margin: 0; text-shadow: 0 0 15px rgba(0,214,50,0.6); }
+        .sub-text { font-size: 14px; margin-bottom: 10px; text-transform: uppercase; color: #ccc; }
 
-        /* منطقة الأموال المنفجرة للأعلى */
-        .explosion-zone { position: relative; height: 140px; margin: 20px 0; overflow: visible; }
+        /* منطقة الأموال المتحركة لمنع تداخل العناصر */
+        .money-box { position: relative; height: 100px; margin: 15px 0; }
         
-        .flying-money {
-            font-size: 55px; position: absolute; left: 50%; bottom: 0;
+        .flying {
+            font-size: 45px; position: absolute; left: 50%; bottom: 0;
             transform: translateX(-50%);
-            animation: burstUp 2s infinite ease-out;
+            animation: burst 2s infinite ease-out;
         }
 
-        @keyframes burstUp {
+        @keyframes burst {
             0% { bottom: 0; opacity: 1; transform: translateX(-50%) scale(0.8); }
-            50% { opacity: 1; transform: translateX(-80%) scale(1.4) rotate(-20deg); }
-            100% { bottom: 180px; opacity: 0; transform: translateX(40%) scale(0.7) rotate(20deg); }
+            50% { opacity: 1; transform: translateX(-70%) scale(1.2) rotate(-15deg); }
+            100% { bottom: 130px; opacity: 0; transform: translateX(30%) scale(0.6) rotate(15deg); }
         }
 
-        /* الزر الأخضر الجذاب */
-        .activate-btn { 
-            display: block; background: linear-gradient(135deg, #00d632, #00ff40); 
-            color: #000; padding: 20px; text-decoration: none; 
-            border-radius: 100px; font-weight: 900; font-size: 26px; 
-            box-shadow: 0 10px 30px rgba(0, 214, 50, 0.4); transition: 0.3s;
+        /* تحسين حجم الزر ليناسب الشاشة */
+        .btn { 
+            display: inline-block; width: 85%; background: linear-gradient(135deg, #00d632, #00ff40); 
+            color: #000; padding: 15px 0; text-decoration: none; 
+            border-radius: 50px; font-weight: 900; font-size: 22px; 
+            box-shadow: 0 8px 20px rgba(0, 214, 50, 0.3); transition: 0.3s;
             text-transform: uppercase; margin-top: 10px;
         }
 
-        .activate-btn:active { transform: scale(0.95); }
+        .btn:active { transform: scale(0.95); }
     </style>
 </head>
 <body>
+    <div class="overlay"></div>
     <div class="card">
         <h1>$750</h1>
-        <div class="sub-title">Claim Your Trading Reward</div>
+        <div class="sub-text">Claim Your Trading Reward</div>
         
-        <div class="explosion-zone">
-            <div class="flying-money" style="animation-delay: 0s;">💰</div>
-            <div class="flying-money" style="animation-delay: 0.7s;">💵</div>
-            <div class="flying-money" style="animation-delay: 1.4s;">💸</div>
+        <div class="money-box">
+            <div class="flying" style="animation-delay: 0s;">💰</div>
+            <div class="flying" style="animation-delay: 0.7s;">💵</div>
+            <div class="flying" style="animation-delay: 1.4s;">💸</div>
         </div>
 
-        <div style="color:#00d632; font-weight:bold; margin-bottom:20px; font-size: 18px;">
+        <div style="color:#00d632; font-weight:bold; margin-bottom:15px; font-size: 16px;">
             STATUS: <span style="text-decoration: underline;">READY</span>
         </div>
 
-        <a href="https://smrturl.co/a/s87700d574f/663?s1=" class="activate-btn">Activate Now</a>
+        <a href="https://smrturl.co/a/s87700d574f/663?s1=" class="btn">Activate Now</a>
     </div>
 </body>
 </html>
