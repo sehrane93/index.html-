@@ -3,76 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Trading Reward</title>
+    <title>Trading Reward</title>
     <style>
-        /* خلفية شارت التداول - استخدام رابط مباشر وموثوق */
+        /* إنشاء شارت تداول برمجياً في الخلفية لضمان الظهور */
         body { 
-            background: #000 url('https://images.unsplash.com/photo-1611974714024-46279913560e?q=80&w=1000&auto=format&fit=crop') no-repeat center center fixed; 
-            background-size: cover;
-            color: #fff; font-family: 'Arial Black', sans-serif; 
+            background-color: #050505;
+            background-image: 
+                linear-gradient(90deg, rgba(0,214,50,.05) 1px, transparent 1px),
+                linear-gradient(rgba(0,214,50,.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: #fff; font-family: sans-serif; 
             display: flex; justify-content: center; align-items: center; 
             height: 100vh; margin: 0; overflow: hidden;
         }
 
-        /* طبقة تظليل لجعل الكلام مشعاً وواضحاً */
-        .overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.85); z-index: 1;
+        /* إضافة خطوط الشارت الصاعدة والهابطة برمجياً */
+        body::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: repeating-linear-gradient(45deg, transparent, transparent 100px, rgba(0, 214, 50, 0.03) 100px, rgba(0, 214, 50, 0.03) 101px);
+            z-index: 0;
         }
 
         .card { 
-            position: relative; z-index: 2; width: 88%; max-width: 380px; 
+            position: relative; z-index: 2; width: 85%; max-width: 380px; 
             border: 3px solid #00d632; border-radius: 35px; 
-            padding: 40px 20px; background: rgba(5, 5, 5, 0.95); 
-            box-shadow: 0 0 50px rgba(0, 214, 50, 0.7); text-align: center;
+            padding: 40px 20px; background: rgba(10, 10, 10, 0.98); 
+            box-shadow: 0 0 50px rgba(0, 214, 50, 0.5); text-align: center;
         }
 
-        h1 { color: #00d632; font-size: 75px; margin: 0; text-shadow: 0 0 20px rgba(0,214,50,0.8); }
-        .sub { font-size: 16px; margin-bottom: 15px; color: #fff; text-transform: uppercase; letter-spacing: 1px; }
+        h1 { color: #00d632; font-size: 70px; margin: 0; text-shadow: 0 0 20px rgba(0,214,50,0.6); }
 
-        /* منطقة الأموال المنفجرة للأعلى */
-        .explosion-zone { position: relative; height: 160px; margin: 15px 0; overflow: visible; }
-        
-        .flying-money {
-            font-size: 55px; position: absolute; left: 50%; bottom: 0;
+        /* تأثير انفجار الأموال للأعلى */
+        .explosion-box { position: relative; height: 150px; margin: 20px 0; }
+        .money {
+            font-size: 50px; position: absolute; left: 50%; bottom: 0;
             transform: translateX(-50%);
-            animation: burstUp 2s infinite ease-out;
+            animation: burstUp 1.8s infinite ease-out;
         }
 
         @keyframes burstUp {
-            0% { bottom: 0; opacity: 1; transform: translateX(-50%) scale(0.8) rotate(0deg); }
-            50% { opacity: 1; transform: translateX(-80%) scale(1.4) rotate(-20deg); }
-            100% { bottom: 180px; opacity: 0; transform: translateX(40%) scale(0.7) rotate(20deg); }
+            0% { bottom: 0; opacity: 1; transform: translateX(-50%) scale(0.5); }
+            50% { opacity: 1; transform: translateX(-90%) scale(1.3) rotate(-20deg); }
+            100% { bottom: 200px; opacity: 0; transform: translateX(50%) scale(0.6) rotate(20deg); }
         }
 
         .btn { 
-            display: block; background: linear-gradient(135deg, #00d632, #00ff40); 
-            color: #000; padding: 22px; text-decoration: none; 
-            border-radius: 100px; font-weight: 900; font-size: 28px; 
-            box-shadow: 0 15px 35px rgba(0, 214, 50, 0.5); transition: 0.3s;
-            text-transform: uppercase;
-        }
-
-        .btn:active { transform: scale(0.92); }
-    </style>
-</head>
-<body>
-    <div class="overlay"></div>
-    <div class="card">
-        <h1>$750</h1>
-        <div class="sub">CLAIM YOUR TRADING REWARD</div>
-        
-        <div class="explosion-zone">
-            <div class="flying-money" style="animation-delay: 0s;">💰</div>
-            <div class="flying-money" style="animation-delay: 0.7s;">💵</div>
-            <div class="flying-money" style="animation-delay: 1.4s;">💸</div>
-        </div>
-
-        <div style="color:#00d632; font-weight:bold; margin-bottom:20px; font-size: 18px;">
-            STATUS: READY
-        </div>
-
-        <a href="https://smrturl.co/a/s87700d574f/663?s1=" class="btn">ACTIVATE NOW</a>
-    </div>
-</body>
-</html>
+            display: block; background: #00d632; color: #000; 
+            padding: 20px; text-decoration: none; border-radius: 100px; 
+            font
