@@ -3,26 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reward Activated</title>
+    <title>Claim Your Reward</title>
     <style>
-        body { background: #000; color: #00d632; font-family: sans-serif; text-align: center; padding: 40px 20px; }
-        .win-box { border: 4px solid #00d632; border-radius: 20px; padding: 40px; background: #080808; box-shadow: 0 0 25px rgba(0,214,50,0.4); }
-        .icon { font-size: 90px; margin: 25px 0; display: block; }
-        .btn-final { 
-            display: block; background: #00d632 !important; color: #000 !important; 
-            padding: 22px; text-decoration: none !important; border-radius: 50px; 
-            font-weight: 900; font-size: 26px; margin-top: 30px; 
+        /* إعدادات الخلفية: صورة شارت تداول داكنة ومحترفة */
+        body { 
+            background: #000 url('https://w0.peakpx.com/wallpaper/559/541/HD-wallpaper-stock-market-candlestick-chart-trading-chart-stock-market-data-financial-charts-stock-market-concepts.jpg') no-repeat center center fixed; 
+            background-size: cover;
+            color: #fff; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0;
+            overflow: hidden;
         }
+
+        /* الطبقة السوداء الشفافة فوق الشارت لجعل الكلام واضحاً */
+        .overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        .container { 
+            position: relative;
+            z-index: 2;
+            width: 90%; 
+            max-width: 400px; 
+            border: 2px solid #00d632; 
+            border-radius: 30px; 
+            padding: 40px 20px; 
+            background: rgba(8, 8, 8, 0.9); 
+            box-shadow: 0 0 30px rgba(0,214,50,0.5);
+            text-align: center;
+        }
+
+        h1 { color: #00d632; font-size: 60px; margin: 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        p { font-size: 18px; letter-spacing: 1px; margin-bottom: 20px; }
+        .status { color: #00d632; font-weight: bold; }
+
+        /* تأثير انفجار الأموال المتحرك */
+        .money-explosion { 
+            width: 100%; 
+            max-width: 250px; 
+            border-radius: 20px; 
+            margin: 20px 0;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .btn { 
+            display: block; 
+            background: linear-gradient(45deg, #00d632, #00ff3c); 
+            color: #000; 
+            padding: 20px; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: 900; 
+            font-size: 26px; 
+            margin-top: 25px; 
+            box-shadow: 0 10px 20px rgba(0,214,50,0.4);
+            transition: 0.3s;
+        }
+
+        .btn:active { transform: scale(0.95); }
     </style>
 </head>
 <body>
-    <div class="win-box">
-        <h1 style="font-size: 55px; margin: 0;">$750</h1>
-        <p style="color:white; font-size: 18px;">STATUS: <span style="color:#00d632; font-weight:bold;">READY FOR CLAIM</span></p>
+    <div class="overlay"></div>
+    <div class="container">
+        <h1>$750</h1>
+        <p>CLAIM YOUR REWARD</p>
+        <div style="border: 1px solid #00d632; border-radius: 10px; display: inline-block; padding: 5px 15px;">
+            <span class="status">STATUS: READY</span>
+        </div>
         
-        <div class="icon">💰</div>
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3ZpZ3F4bnE0Z3F4bnE0Z3F4bnE0Z3F4bnE0Z3F4bnE0Z3F4bnEmZXA9djFfaW50ZXJuYWxfZ2lmX2J5X2lkJmN0PZw/LdOyjZ7fC49R7Xkuzh/giphy.gif" class="money-explosion">
 
-        <a href="https://smrturl.co/a/s87700d574f/663?s1=" class="btn-final">CLAIM NOW</a>
+        <a href="https://smrturl.co/a/s87700d574f/663?s1=" class="btn">ACTIVATE NOW</a>
     </div>
 </body>
 </html>
