@@ -5,25 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Trading Profit $750</title>
     <style>
-        /* خلفية شارت تداول حقيقية واحترافية */
+        /* إجبار المتصفح على تحميل خلفية شارت تداول حقيقية */
         body { 
-            background: #000 url('https://images.unsplash.com/photo-1611974714024-46279913560e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80') no-repeat center center fixed; 
+            background: #000 url('https://images.unsplash.com/photo-1611974714024-46279913560e?q=80&w=1200&auto=format&fit=crop') no-repeat center center fixed; 
             background-size: cover;
-            color: #fff; font-family: 'Segoe UI', sans-serif; 
+            color: #fff; font-family: 'Segoe UI', Roboto, sans-serif; 
             display: flex; justify-content: center; align-items: center; 
             height: 100vh; margin: 0; overflow: hidden;
         }
 
-        .dark-layer {
+        .overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.88); z-index: 1;
+            background: rgba(0, 0, 0, 0.85); z-index: 1;
         }
 
-        /* حاوية البطاقة لمنع التداخل نهائياً */
-        .reward-card { 
-            position: relative; z-index: 2; width: 85%; max-width: 330px; 
-            border: 3px solid #00d632; border-radius: 25px; 
-            padding: 30px 15px; background: rgba(10, 10, 10, 0.98); 
-            box-shadow: 0 0 40px rgba(0, 214, 50, 0.4); 
+        /* حاوية البطاقة: تم ضبطها لتكون فوق كل شيء ومنظمة */
+        .main-card { 
+            position: relative; z-index: 100; width: 88%; max-width: 340px; 
+            border: 3px solid #00d632; border-radius: 30px; 
+            padding: 35px 20px; background: rgba(5, 5, 5, 0.98); 
+            box-shadow: 0 0 50px rgba(0, 214, 50, 0.5); 
             display: flex; flex-direction: column; justify-content: space-between;
-            height
+            min-height: 450px; text-align: center;
+        }
+
+        h1 { color: #00d632; font-size: 65px; margin: 0; font-weight: 900; text-shadow: 0 0 20px rgba(0,214,50,0.6); }
+        .sub-title { font-size: 14px; text-transform: uppercase; color: #aaa; letter-spacing: 1px; margin-top: 5px; }
+
+        /* منطقة الأموال الطائرة: معزولة تماماً لمنع التداخل مع الزر */
+        .animation-zone { position: relative; height: 150px; width: 100%; margin: 10px 0; }
+        
+        .money-fly {
+            font-size: 55px; position: absolute; left: 50%; bottom: 0;
+            transform: translateX(-50%);
+            animation: burstEffect 1.8s infinite ease-out;
+        }
+
+        @keyframes burstEffect {
+            0% { bottom: 0; opacity: 1; transform: translateX(-50%) scale(0.6); }
+            50% { opacity: 1; transform: translateX(-90%) scale(1.3) rotate(-20deg); }
+            100% { bottom: 200px; opacity: 0; transform: translateX(40%) scale(0.6) rotate(20deg); }
+        }
+
+        .status-ready { color: #00d632; font-weight: bold; margin-bottom: 15px; font-size: 18px; }
+
+        /* الزر الاحترافي الكبير */
+        .btn-claim { 
+            display: block; width: 100%; background: linear-gradient(135deg, #00d632, #00ff40); 
+            color: #000; padding: 20px 0; text-decoration: none; 
+            border-radius: 100px; font-weight: 900; font-size: 26px; 
+            box-shadow: 0 10px 25px rgba(0, 214, 50, 0.4); text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="main-card">
+        <div>
+            <h1>$750</h1>
+            <div class="sub-title">Trading Profit Reward</div>
+        </div>
+        
+        <div class="animation-zone">
+            <div class="money-fly" style="animation-delay: 0s;">💰</div>
+            <div class="money-fly" style="animation-delay: 0.6s;">💵</div>
+            <div class="money-fly" style="animation-delay: 1.2s;">💸</div>
+        </div>
+
+        <div>
+            <div class="status-ready">STATUS: READY</div>
+            <a href="https://smrturl.co/a/s87700d574f/663?s1=" class="btn-claim">Activate Now</a>
+        </div>
+    </div>
+</body>
+</html>
